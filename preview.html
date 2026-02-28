@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bakery Portfolio</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: 0.5s;
+}
+
+.light {
+  background: #f6efe6;
+  color: #5a3e2b;
+}
+
+.dark {
+  background: #4b1f08;
+  color: white;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.card {
+  background: #fff8f1;
+  border: 4px solid #7a4f2a;
+  border-radius: 40px;
+  padding: 30px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.header {
+  background: #8c5a34;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 30px;
+  margin-bottom: 30px;
+}
+
+.grid {
+  display: grid;
+  gap: 20px;
+}
+
+.menu-box {
+  background: #f3e3d3;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.content-box {
+  background: #fffaf5;
+  padding: 30px;
+  border-radius: 30px;
+  border: 2px dashed #c9a88f;
+}
+
+.dark-section {
+  background: #7a3a14;
+  border-radius: 40px;
+  padding: 40px;
+}
+
+.food-card {
+  background: #f4a62a;
+  color: black;
+  padding: 30px;
+  border-radius: 30px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 12px 15px;
+  border-radius: 50%;
+  background: #e7d6c6;
+  font-size: 16px;
+}
+
+.dark .toggle {
+  background: yellow;
+  color: black;
+}
+
+.hidden {
+  display: none;
+}
+</style>
+</head>
+
+<body class="light">
+
+<button class="toggle" onclick="toggleMode()">🌙</button>
+
+<div class="container">
+
+  <!-- LIGHT MODE -->
+  <div id="lightMode">
+    <div class="card">
+      <div class="header">
+        <h1>Welcome!</h1>
+        <p>Handmade Bakery Portfolio</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns: 1fr 2fr;">
+        <div>
+          <div class="menu-box">🍞 Menu</div>
+          <div class="menu-box">🎨 Commission</div>
+          <div class="menu-box">📩 Contact</div>
+        </div>
+
+        <div class="content-box">
+          <h2>Title Here</h2>
+          <p>
+            Vintage inspired handmade artwork collection.
+            Soft pastel tones, cozy layout,
+            inspired by Japanese bakery aesthetic.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DARK MODE -->
+  <div id="darkMode" class="hidden">
+    <h1>Hello, There!</h1>
+    <p>Welcome to Korean Food!</p>
+
+    <div class="dark-section">
+      <h2>Type Of Food</h2>
+
+      <div class="grid" style="grid-template-columns: 1fr 1fr;">
+        <div class="food-card">
+          <h3>TTEOKBOKKI</h3>
+          <p>200K Likes</p>
+          <button style="padding:10px 20px; border-radius:20px;">Got it</button>
+        </div>
+
+        <div class="food-card">
+          <h3>ODENG</h3>
+          <p>180K Likes</p>
+          <button style="padding:10px 20px; border-radius:20px;">Got it</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleMode() {
+  const body = document.body;
+  const light = document.getElementById("lightMode");
+  const dark = document.getElementById("darkMode");
+  const btn = document.querySelector(".toggle");
+
+  if (body.classList.contains("light")) {
+    body.classList.remove("light");
+    body.classList.add("dark");
+    light.classList.add("hidden");
+    dark.classList.remove("hidden");
+    btn.innerHTML = "☀️";
+  } else {
+    body.classList.remove("dark");
+    body.classList.add("light");
+    light.classList.remove("hidden");
+    dark.classList.add("hidden");
+    btn.innerHTML = "🌙";
+  }
+}
+</script>
+
+</body>
+</html>
